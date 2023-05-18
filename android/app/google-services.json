@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "858593510484",
+    "project_id": "swservicio-59f82",
+    "storage_bucket": "swservicio-59f82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858593510484:android:b946e28b8ffbad5ec059c1",
+        "android_client_info": {
+          "package_name": "com.example.swdeservicio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858593510484-5k3e442m0t71h69gnqo2vq53jgmdr0c9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRbrwIwF8ngD3G3RNndXeMuY_R82yj7s4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858593510484-5k3e442m0t71h69gnqo2vq53jgmdr0c9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
