@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:swdeservicio/screens/add_car.dart';
+import 'package:swdeservicio/screens/profile_car.dart';
 import 'package:swdeservicio/screens/profile_screen.dart';
 
 import '../utils/colors.dart';
@@ -72,7 +73,7 @@ class _CarScreenState extends State<CarScreen> {
                     return InkWell(
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => ProfileScreen(
+                          builder: (context) => ProfileCarScreen(
                             uid: (snapshot.data! as dynamic).docs[index]
                                 ['caruid'],
                           ),
@@ -107,6 +108,14 @@ class _CarScreenState extends State<CarScreen> {
                   itemCount: (snapshot.data! as dynamic).docs.length,
                   itemBuilder: (context, index) {
                     return InkWell(
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ProfileCarScreen(
+                            uid: (snapshot.data! as dynamic).docs[index]
+                                ['caruid'],
+                          ),
+                        ),
+                      ),
                       child: ListTile(
                         leading: CircleAvatar(
                           backgroundImage: NetworkImage(

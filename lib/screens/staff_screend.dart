@@ -40,7 +40,7 @@ class _GroupScreenState extends State<GroupScreen> {
             child: TextFormField(
               controller: searchController,
               decoration:
-                  const InputDecoration(labelText: 'Search for a users...'),
+                  const InputDecoration(labelText: 'Search for a staff...'),
               onFieldSubmitted: (String _) {
                 setState(() {
                   isShowUsers = true;
