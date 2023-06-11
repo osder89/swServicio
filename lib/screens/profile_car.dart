@@ -21,9 +21,6 @@ class ProfileCarScreen extends StatefulWidget {
 class _ProfileCarScreenState extends State<ProfileCarScreen> {
   var carData = {};
   int postLen = 0;
-  int followers = 0;
-  int following = 0;
-  bool isFollowing = false;
   bool isLoading = false;
 
   @override
@@ -48,12 +45,6 @@ class _ProfileCarScreenState extends State<ProfileCarScreen> {
 
       postLen = postSnap.docs.length;
       carData = carSnap.data()!;
-      /*followers = userSnap.data()!['followers'].length;
-      following = userSnap.data()!['following'].length;*/
-      isFollowing = carSnap
-          .data()!['followers']
-          .contains(FirebaseAuth.instance.currentUser!.uid);
-      setState(() {});
     } catch (e) {
       showSnackBar(e.toString(), context);
     }
@@ -89,7 +80,7 @@ class _ProfileCarScreenState extends State<ProfileCarScreen> {
                             backgroundImage: NetworkImage(
                               carData['photoUrl'],
                             ),
-                            radius: 40,
+                            radius: 60,
                           ),
                           Expanded(
                             flex: 1,
@@ -110,7 +101,7 @@ class _ProfileCarScreenState extends State<ProfileCarScreen> {
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     FollowButton(
-                                      text: 'Add Diagnosis',
+                                      text: 'New Diagnosis',
                                       backgroundColor: mobileBackgroundColor,
                                       textColor: primaryColor,
                                       borderColor: Colors.grey,
