@@ -1,4 +1,4 @@
-import 'dart:io';
+//import 'dart:io';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:gallery_saver/gallery_saver.dart';
+//import 'package:gallery_saver/gallery_saver.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -69,7 +69,7 @@ class _CardaDataScreenState extends State<CardaDataScreen> {
     final path = '${tempDir.path}/${ref.name}';
     await Dio().download(url, path);
 
-    await GallerySaver.saveImage(path, toDcim: true);
+   // await GallerySaver.saveImage(path, toDcim: true);
 
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text('Download ${ref.name}')));

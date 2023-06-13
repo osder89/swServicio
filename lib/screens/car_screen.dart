@@ -42,7 +42,7 @@ class _CarScreenState extends State<CarScreen> {
           child: TextFormField(
             controller: _placaControler,
             decoration:
-                const InputDecoration(labelText: 'Search for a vehicle...'),
+                const InputDecoration(labelText: 'Buscar un vehículo....'),
             onFieldSubmitted: (String _) {
               setState(() {
                 isShowUsers = true;

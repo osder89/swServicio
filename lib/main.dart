@@ -10,6 +10,7 @@ import 'package:swdeservicio/responsive/mobile_screen_layout.dart';
 import 'package:swdeservicio/responsive/responsive_layout_screen.dart';
 import 'package:swdeservicio/responsive/web_screen_layout.dart';
 import 'package:swdeservicio/screens/login_screen.dart';
+import 'package:swdeservicio/screens/signup_screen.dart';
 import 'package:swdeservicio/utils/colors.dart';
 
 void main() async {
@@ -75,8 +76,7 @@ class MyApp extends StatelessWidget {
                   ),
                 );
               }
-
-              return const LoginScreen();
+              return const SignupScreen();
             }),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:screen_protector/screen_protector.dart';
+import 'package:swdeservicio/widgets/detalle_card.dart';
 
 import '../utils/colors.dart';
 import '../widgets/post_card.dart';
@@ -14,27 +15,19 @@ class FeedScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: mobileBackgroundColor,
-        centerTitle: false,
-        title: Image.asset('assets/imagen.png'),
+        centerTitle: true,
+        title:Text('Detalle del Mantenimiento')//('Datalle del mantenimiento')
+       //Image.asset('assets/imagen.png'),
         /*actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.messenger_outline))
         ],*/
       ),
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('posts').snapshots(),
-        builder: (context,
-            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          return ListView.builder(
-              itemCount: snapshot.data!.docs.length,
-              itemBuilder: (context, index) =>
-                  PostCard(snap: snapshot.data!.docs[index].data()));
-        },
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int index)=>Detallecard() 
+
       ),
+      
     );
+    
   }
 }
