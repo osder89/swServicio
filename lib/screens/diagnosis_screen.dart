@@ -21,10 +21,16 @@ class DiagnosisScreen extends StatefulWidget {
 }
 
 class _DiagnosisScreenState extends State<DiagnosisScreen> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _bioController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _kmController = TextEditingController();
+  final TextEditingController _descripcionController = TextEditingController();
+  final _mantenimientos = [
+    "manteimineto de 5000km",
+    "manteimineto de 10000km",
+    "manteimineto de 15000km",
+    "manteimineto de 20000km",
+    "manteimineto de 25000km"
+  ];
+
   Uint8List? _image;
   bool _isLoading = false;
 
@@ -32,46 +38,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _bioController.dispose();
-    _usernameController.dispose();
-  }
-
-  void selectImage() async {
-    Uint8List imag = await pickImage(ImageSource.gallery);
-    setState(() {
-      _image = imag;
-    });
-  }
-
-  void signUpUser() async {
-    setState(() {
-      _isLoading = true;
-    });
-    String res = await AuthMethods().singUpUser(
-      email: _emailController.text,
-      password: _passwordController.text,
-      username: _usernameController.text,
-      bio: _bioController.text,
-      file: _image!,
-    );
-    setState(() {
-      _isLoading = false;
-    });
-    if (res != 'success') {
-      showSnackBar(res, context);
-    } else {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const ResponsiveLayout(
-              webScreenLayout: WebScreenLayout(),
-              mobileScreenLayout: MobileScreenLayout())));
-    }
-  }
-
-  void navigateToLogin() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+    _kmController.dispose();
   }
 
   void navigateToback() {
@@ -91,39 +58,29 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
             const SizedBox(
               height: 64,
             ),
+            Text(
+              "Rellene el sisguiente formulario",
+            ),
+            const SizedBox(
+              height: 64,
+            ),
             TextFieldInput(
               hindText: 'Ingrese el kilometraje ',
               textInputType: TextInputType.text,
-              textEditingController: _usernameController,
+              textEditingController: _kmController,
             ),
             const SizedBox(
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter your email',
-              textInputType: TextInputType.emailAddress,
-              textEditingController: _emailController,
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            TextFieldInput(
-              hindText: 'Enter your password',
+              hindText: 'Ingrese la descripcion ',
               textInputType: TextInputType.text,
-              textEditingController: _passwordController,
-              isPass: true,
+              textEditingController: _descripcionController,
             ),
             const SizedBox(
               height: 24,
             ),
-            TextFieldInput(
-              hindText: 'Enter your bio',
-              textInputType: TextInputType.text,
-              textEditingController: _bioController,
-            ),
-            const SizedBox(
-              height: 24,
-            ),
+            DropdownButton(items: _mantenimientos, onChanged: onChanged),
             const SizedBox(
               height: 24,
             ),
