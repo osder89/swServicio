@@ -88,6 +88,7 @@ class _SignupScreenState extends State<SignupScreen> {
               child: Container(),
               flex: 2,
             ),
+            //esto debe ser el logo 
             Image.asset('assets/imagen.png'),
             Stack(
               children: [
@@ -115,7 +116,7 @@ class _SignupScreenState extends State<SignupScreen> {
               height: 64,
             ),
             TextFieldInput(
-              hindText: 'Enter your user name ',
+              hindText: 'Introduzca su nombre ',
               textInputType: TextInputType.text,
               textEditingController: _usernameController,
             ),
@@ -123,7 +124,7 @@ class _SignupScreenState extends State<SignupScreen> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter your email',
+              hindText: 'Introduzca su correro',
               textInputType: TextInputType.emailAddress,
               textEditingController: _emailController,
             ),
@@ -131,7 +132,7 @@ class _SignupScreenState extends State<SignupScreen> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter your password',
+              hindText: 'Introduzca su contraseña',
               textInputType: TextInputType.text,
               textEditingController: _passwordController,
               isPass: true,
@@ -140,7 +141,7 @@ class _SignupScreenState extends State<SignupScreen> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter your bio',
+              hindText: 'Introduzca su descripcion',
               textInputType: TextInputType.text,
               textEditingController: _bioController,
             ),
@@ -159,7 +160,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           color: primaryColor,
                         ),
                       )
-                    : const Text('Sing up'),
+                    : const Text('Registrarse'),
                 width: double.infinity,
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(vertical: 12),
@@ -181,14 +182,14 @@ class _SignupScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  child: const Text('Dont have an account?'),
+                  child: const Text('¿Ya tienes una cuenta?'),
                   padding: const EdgeInsets.symmetric(vertical: 8),
                 ),
                 GestureDetector(
                   onTap: navigateToLogin,
                   child: Container(
                     child: const Text(
-                      'Login',
+                      'IniciarSesion',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8),

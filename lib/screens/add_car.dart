@@ -125,7 +125,7 @@ class _AddCarState extends State<AddCar> {
               height: 64,
             ),
             TextFieldInput(
-              hindText: 'Enter the plate  ',
+              hindText: 'Introduzca numero de placa',
               textInputType: TextInputType.text,
               textEditingController: _placaController,
             ),
@@ -133,7 +133,7 @@ class _AddCarState extends State<AddCar> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter a model',
+              hindText: 'Introduzca modelo',
               textInputType: TextInputType.text,
               textEditingController: _modeloController,
             ),
@@ -141,7 +141,7 @@ class _AddCarState extends State<AddCar> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter a year',
+              hindText: 'Introduzca año',
               textInputType: TextInputType.text,
               textEditingController: _yearController,
             ),

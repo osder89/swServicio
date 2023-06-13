@@ -65,7 +65,15 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
               height: 64,
             ),
             TextFieldInput(
-              hindText: 'Ingrese el kilometraje ',
+              hindText: 'Enter your email',
+              textInputType: TextInputType.emailAddress,
+              textEditingController: _emailController,
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            TextFieldInput(
+              hindText: 'Enter your password',
               textInputType: TextInputType.text,
               textEditingController: _kmController,
             ),
@@ -73,7 +81,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Ingrese la descripcion ',
+              hindText: 'Enter your bio',
               textInputType: TextInputType.text,
               textEditingController: _descripcionController,
             ),
@@ -99,7 +107,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                               color: primaryColor,
                             ),
                           )
-                        : const Text('Continue'),
+                        : const Text('Continuar'),
                     width: 120,
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(vertical: 12),
@@ -120,7 +128,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                               color: primaryColor,
                             ),
                           )
-                        : const Text('Cancel'),
+                        : const Text('Cancelar'),
                     width: 120,
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(vertical: 12),
