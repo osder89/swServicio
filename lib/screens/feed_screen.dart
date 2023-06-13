@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:screen_protector/screen_protector.dart';
 import 'package:swdeservicio/screens/replacement_screen.dart';
+import 'package:swdeservicio/screens/task_screen.dart';
 import 'package:swdeservicio/widgets/detalle_card.dart';
 
 import '../utils/colors.dart';
@@ -26,6 +27,16 @@ class FeedScreen extends StatelessWidget {
             },
             icon: Icon(
               Icons.build_circle_sharp,
+              size: 40,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => TaskScreen()));
+            },
+            icon: Icon(
+              Icons.assignment,
               size: 40,
             ),
           )
