@@ -21,15 +21,21 @@ class DiagnosisScreen extends StatefulWidget {
 }
 
 class _DiagnosisScreenState extends State<DiagnosisScreen> {
+  _DiagnosisScreenState() {
+    _selec = _mantenimientos[0];
+  }
+
   final TextEditingController _kmController = TextEditingController();
   final TextEditingController _descripcionController = TextEditingController();
   final _mantenimientos = [
-    "manteimineto de 5000km",
-    "manteimineto de 10000km",
-    "manteimineto de 15000km",
-    "manteimineto de 20000km",
-    "manteimineto de 25000km"
+    "mantenimiento de 5000km",
+    "mantenimiento de 10000km",
+    "mantenimiento de 15000km",
+    "mantenimiento de 20000km",
+    "mantenimiento de 25000km"
   ];
+  final _mensaje = ["Selecione el mantenimiento a realizar", "0", "1"];
+  String? _selec = "";
 
   Uint8List? _image;
   bool _isLoading = false;
@@ -48,6 +54,9 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Rellene el siguiente formulario"),
+      ),
       body: SafeArea(
           child: Container(
         padding: EdgeInsets.symmetric(horizontal: 32),
@@ -56,39 +65,59 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 64,
+              height: 20,
             ),
-            Text(
-              "Rellene el sisguiente formulario",
-            ),
+            Text("Kilometraje"),
             const SizedBox(
-              height: 64,
+              height: 20,
             ),
             TextFieldInput(
-              hindText: 'Enter your email',
-              textInputType: TextInputType.emailAddress,
-              textEditingController: _emailController,
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            TextFieldInput(
-              hindText: 'Enter your password',
+              hindText: 'ingrese el kilometraje',
               textInputType: TextInputType.text,
               textEditingController: _kmController,
             ),
             const SizedBox(
-              height: 24,
+              height: 30,
             ),
-            TextFieldInput(
-              hindText: 'Enter your bio',
-              textInputType: TextInputType.text,
-              textEditingController: _descripcionController,
+            Text("Diagnostico"),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: TextField(
+                controller: _descripcionController,
+                decoration: const InputDecoration(
+                    hintText: 'Ingrese su diagnostico',
+                    border: OutlineInputBorder()),
+                maxLines: 8,
+              ),
             ),
             const SizedBox(
-              height: 24,
+              height: 30,
             ),
-            DropdownButton(items: _mantenimientos, onChanged: onChanged),
+            Text("Seleccione el mantenimineto a realizar"),
+            const SizedBox(
+              height: 20,
+            ),
+            DropdownButtonFormField(
+              value: _selec,
+              items: _mantenimientos
+                  .map((e) => DropdownMenuItem(
+                        child: Text(e),
+                        value: e,
+                      ))
+                  .toList(),
+              onChanged: (val) {
+                setState(() {
+                  _selec = val as String;
+                });
+              },
+              icon: const Icon(Icons.arrow_drop_down_circle),
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.add_moderator)),
+            ),
             const SizedBox(
               height: 24,
             ),
