@@ -44,7 +44,7 @@ class _SignupScreenState extends State<SignupScreen> {
       _image = imag;
     });
   }
-
+//aqui se crea una funcion dode el aqui mete todos los datos del usuario 
   void signUpUser() async {
     setState(() {
       _isLoading = true;

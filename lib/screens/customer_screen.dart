@@ -39,7 +39,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
           child: TextFormField(
             controller: searchController,
             decoration:
-                const InputDecoration(labelText: 'Search for a customer...'),
+                const InputDecoration(labelText: 'Buscar un cliente...'),
             onFieldSubmitted: (String _) {
               setState(() {
                 isShowUsers = true;
@@ -110,17 +110,20 @@ class _CustomerScreenState extends State<CustomerScreen> {
                 return ListView.builder(
                   itemCount: (snapshot.data! as dynamic).docs.length,
                   itemBuilder: (context, index) {
-                    return InkWell(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            (snapshot.data! as dynamic).docs[index]['photoUrl'],
+                    return Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: InkWell(
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                              (snapshot.data! as dynamic).docs[index]['photoUrl'],
+                            ),
+                            radius: 30,
                           ),
-                          radius: 30,
-                        ),
-                        title: Text(
-                          ' ${(snapshot.data! as dynamic).docs[index]['name']}  ${(snapshot.data! as dynamic).docs[index]['lastname']} ',
-                          style: TextStyle(fontSize: 20),
+                          title: Text(
+                            ' ${(snapshot.data! as dynamic).docs[index]['name']}  ${(snapshot.data! as dynamic).docs[index]['lastname']} ',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
                     );

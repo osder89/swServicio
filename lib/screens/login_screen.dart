@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 64,
             ),
             TextFieldInput(
-              hindText: 'Enter your email',
+              hindText: 'Introducir correro',
               textInputType: TextInputType.emailAddress,
               textEditingController: _emailController,
             ),
@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter your password',
+              hindText: 'Introducir contraseña',
               textInputType: TextInputType.text,
               textEditingController: _passwordController,
               isPass: true,
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: primaryColor,
                         ),
                       )
-                    : const Text('Log in'),
+                    : const Text('Iniciar sesecion'),
                 width: double.infinity,
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(vertical: 12),

@@ -92,8 +92,8 @@ class _ProfileCarScreenState extends State<ProfileCarScreen> {
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     buildStatColumn(
-                                        carData['kilometraje'], "kilometraje"),
-                                    buildStatColumn(carData['modelo'], "Make"),
+                                        carData['kilometraje'], "Kilometraje"),
+                                    buildStatColumn(carData['modelo'], "Marca"),
                                   ],
                                 ),
                                 Row(
@@ -101,7 +101,7 @@ class _ProfileCarScreenState extends State<ProfileCarScreen> {
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     FollowButton(
-                                      text: 'New Diagnosis',
+                                      text: 'Nuevo diagnostico',
                                       backgroundColor: mobileBackgroundColor,
                                       textColor: primaryColor,
                                       borderColor: Colors.grey,

@@ -40,7 +40,7 @@ class _GroupScreenState extends State<GroupScreen> {
             child: TextFormField(
               controller: searchController,
               decoration:
-                  const InputDecoration(labelText: 'Search for a staff...'),
+                  const InputDecoration(labelText: 'Buscar usuario...'),
               onFieldSubmitted: (String _) {
                 setState(() {
                   isShowUsers = true;
@@ -120,17 +120,20 @@ class _GroupScreenState extends State<GroupScreen> {
                             ),
                           ),
                         ),
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            backgroundImage: NetworkImage(
-                              (snapshot.data! as dynamic).docs[index]
-                                  ['photoUrl'],
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                (snapshot.data! as dynamic).docs[index]
+                                    ['photoUrl'],
+                              ),
+                              radius: 25,
                             ),
-                            radius: 25,
-                          ),
-                          title: Text(
-                            (snapshot.data! as dynamic).docs[index]['username'],
-                            style: TextStyle(fontSize: 20),
+                            title: Text(
+                              (snapshot.data! as dynamic).docs[index]['username'],
+                              style: TextStyle(fontSize: 20),
+                            ),
                           ),
                         ),
                       );

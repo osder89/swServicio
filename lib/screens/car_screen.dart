@@ -116,16 +116,19 @@ class _CarScreenState extends State<CarScreen> {
                           ),
                         ),
                       ),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            (snapshot.data! as dynamic).docs[index]['photoUrl'],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                              (snapshot.data! as dynamic).docs[index]['photoUrl'],
+                            ),
+                            radius: 25,
                           ),
-                          radius: 30,
-                        ),
-                        title: Text(
-                          (snapshot.data! as dynamic).docs[index]['placa'],
-                          style: TextStyle(fontSize: 20),
+                          title: Text(
+                            (snapshot.data! as dynamic).docs[index]['placa'],
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
                     );

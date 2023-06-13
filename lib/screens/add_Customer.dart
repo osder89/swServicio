@@ -128,7 +128,7 @@ class _AddCustomerState extends State<AddCustomer> {
               height: 64,
             ),
             TextFieldInput(
-              hindText: 'Enter the name  ',
+              hindText: 'Introducir nombre',
               textInputType: TextInputType.text,
               textEditingController: _nameController,
             ),
@@ -136,7 +136,7 @@ class _AddCustomerState extends State<AddCustomer> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter a lastname',
+              hindText: 'Introducir apellido',
               textInputType: TextInputType.text,
               textEditingController: _lastnameController,
             ),
@@ -144,7 +144,7 @@ class _AddCustomerState extends State<AddCustomer> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter a ci',
+              hindText: 'Introducir ci',
               textInputType: TextInputType.text,
               textEditingController: _ciController,
             ),
@@ -152,7 +152,7 @@ class _AddCustomerState extends State<AddCustomer> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter a email',
+              hindText: 'Introducir correo',
               textInputType: TextInputType.text,
               textEditingController: _emailController,
             ),
@@ -160,7 +160,7 @@ class _AddCustomerState extends State<AddCustomer> {
               height: 24,
             ),
             TextFieldInput(
-              hindText: 'Enter a telephone',
+              hindText: 'Numero de telefono',
               textInputType: TextInputType.text,
               textEditingController: _telephoneController,
             ),
@@ -179,7 +179,7 @@ class _AddCustomerState extends State<AddCustomer> {
                           color: primaryColor,
                         ),
                       )
-                    : const Text('add customer'),
+                    : const Text('Resgistrar cliente'),
                 width: double.infinity,
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(vertical: 12),

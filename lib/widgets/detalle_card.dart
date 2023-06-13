@@ -14,7 +14,12 @@ class Detallecard extends StatelessWidget {
           children: [
          //   _Backimagen()
          _idDetalle(),
-         _totalDetalle()
+         Positioned(
+          bottom:0,
+          right: 0,
+          child: _totalDetalle() 
+          ),
+          //Text('nombre',style:TextStyle())
           ],
         ),
         //color: Colors.red,
@@ -38,7 +43,22 @@ class Detallecard extends StatelessWidget {
 class _totalDetalle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Text('Precio Total:\$104',style: TextStyle(color: Colors.white,fontSize: 15))
+        ),
+      ),
+      width: 100,
+      height: 70,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+      color: Colors.grey[500],
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(25),bottomRight: Radius.circular(25))
+      ),
+    );
   }
 }
 
@@ -69,7 +89,6 @@ class _idDetalle extends StatelessWidget {
     borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topLeft: Radius.circular(25))
   );
 }
-
 // este de aqui es para poner una imagen de fondo con un gif mas de carga 
 // no solo implemente para ver que tal quedaba nomas 
 class _Backimagen extends StatelessWidget {
