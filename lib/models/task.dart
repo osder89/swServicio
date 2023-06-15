@@ -8,6 +8,7 @@ class Task {
   final String taskId;
   final String name;
   final double price;
+  final String description;
   final String replaId;
 
   const Task({
@@ -15,6 +16,7 @@ class Task {
     required this.name,
     required this.price,
     required this.replaId,
+    required this.description,
   });
 
   Map<String, dynamic> toJson() => {
@@ -22,6 +24,7 @@ class Task {
         "name": name,
         "price": price,
         "replaId": replaId,
+        "description": description,
       };
 
   static Task fromSnap(DocumentSnapshot snap) {
@@ -32,6 +35,7 @@ class Task {
       name: snapshot['name'],
       price: snapshot['price'],
       replaId: snapshot['replaId'],
+      description: snapshot['description'],
     );
   }
 }

@@ -21,10 +21,22 @@ class DiagnosisScreen extends StatefulWidget {
 }
 
 class _DiagnosisScreenState extends State<DiagnosisScreen> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _bioController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
+  _DiagnosisScreenState() {
+    _selec = _mantenimientos[0];
+  }
+
+  final TextEditingController _kmController = TextEditingController();
+  final TextEditingController _descripcionController = TextEditingController();
+  final _mantenimientos = [
+    "mantenimiento de 5000km",
+    "mantenimiento de 10000km",
+    "mantenimiento de 15000km",
+    "mantenimiento de 20000km",
+    "mantenimiento de 25000km"
+  ];
+  final _mensaje = ["Selecione el mantenimiento a realizar", "0", "1"];
+  String? _selec = "";
+
   Uint8List? _image;
   bool _isLoading = false;
 
@@ -32,46 +44,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _bioController.dispose();
-    _usernameController.dispose();
-  }
-
-  void selectImage() async {
-    Uint8List imag = await pickImage(ImageSource.gallery);
-    setState(() {
-      _image = imag;
-    });
-  }
-
-  void signUpUser() async {
-    setState(() {
-      _isLoading = true;
-    });
-    String res = await AuthMethods().singUpUser(
-      email: _emailController.text,
-      password: _passwordController.text,
-      username: _usernameController.text,
-      bio: _bioController.text,
-      file: _image!,
-    );
-    setState(() {
-      _isLoading = false;
-    });
-    if (res != 'success') {
-      showSnackBar(res, context);
-    } else {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const ResponsiveLayout(
-              webScreenLayout: WebScreenLayout(),
-              mobileScreenLayout: MobileScreenLayout())));
-    }
-  }
-
-  void navigateToLogin() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+    _kmController.dispose();
   }
 
   void navigateToback() {
@@ -81,6 +54,9 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Rellene el siguiente formulario"),
+      ),
       body: SafeArea(
           child: Container(
         padding: EdgeInsets.symmetric(horizontal: 32),
@@ -89,40 +65,58 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 64,
+              height: 20,
+            ),
+            Text("Kilometraje"),
+            const SizedBox(
+              height: 20,
             ),
             TextFieldInput(
-              hindText: 'Ingrese el kilometraje ',
+              hindText: 'ingrese el kilometraje',
               textInputType: TextInputType.text,
-              textEditingController: _usernameController,
+              textEditingController: _kmController,
             ),
             const SizedBox(
-              height: 24,
+              height: 30,
             ),
-            TextFieldInput(
-              hindText: 'Introduzca su correo',
-              textInputType: TextInputType.emailAddress,
-              textEditingController: _emailController,
+            Text("Diagnostico"),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: TextField(
+                controller: _descripcionController,
+                decoration: const InputDecoration(
+                    hintText: 'Ingrese su diagnostico',
+                    border: OutlineInputBorder()),
+                maxLines: 8,
+              ),
             ),
             const SizedBox(
-              height: 24,
+              height: 30,
             ),
-            TextFieldInput(
-              hindText: 'Introduzca contraseña',
-              textInputType: TextInputType.text,
-              textEditingController: _passwordController,
-              isPass: true,
-            ),
+            Text("Seleccione el mantenimineto a realizar"),
             const SizedBox(
-              height: 24,
+              height: 20,
             ),
-            TextFieldInput(
-              hindText: 'Descripcion',
-              textInputType: TextInputType.text,
-              textEditingController: _bioController,
-            ),
-            const SizedBox(
-              height: 24,
+            DropdownButtonFormField(
+              value: _selec,
+              items: _mantenimientos
+                  .map((e) => DropdownMenuItem(
+                        child: Text(e),
+                        value: e,
+                      ))
+                  .toList(),
+              onChanged: (val) {
+                setState(() {
+                  _selec = val as String;
+                });
+              },
+              icon: const Icon(Icons.arrow_drop_down_circle),
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.add_moderator)),
             ),
             const SizedBox(
               height: 24,

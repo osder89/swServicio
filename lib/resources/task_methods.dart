@@ -7,33 +7,29 @@ import 'package:swdeservicio/resources/storage_methods.dart';
 import 'package:uuid/uuid.dart';
 import '../models/event.dart';
 import '../models/replacement.dart';
+import '../models/task.dart';
 
-class ReplacementMethods {
+class TaskMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   //upload post
-  Future<String> addReplacement(
+  Future<String> addTask(
     String name,
     String description,
     double price,
-    int cantidad,
-    String make,
-    Uint8List file,
+    String repuestoId,
   ) async {
     String res = "Some error occurred";
     try {
-      String photoUrl = await StorageMethods()
-          .uploadImageToStorage('replacementImg', file, true);
-      String replacementuid = const Uuid().v1();
-      Replacement post = Replacement(
+      String taskId = const Uuid().v1();
+      Task post = Task(
         name: name,
         description: description,
-        replaId: replacementuid,
-        make: make,
+        replaId: repuestoId,
         price: price,
-        photourl: photoUrl,
+        taskId: taskId,
       );
-      _firestore.collection('repuesto').doc(replacementuid).set(post.toJson());
+      _firestore.collection('tarea').doc(taskId).set(post.toJson());
       res = "success";
     } catch (err) {
       res = err.toString();

@@ -8,3 +8,4 @@ const mobileSearchColor = Color.fromRGBO(0, 0, 0, 1);
 const blueColor = Color.fromRGBO(0, 149, 246, 1);
 const primaryColor = Colors.white;
 const secondaryColor = Colors.grey;
+const appBar = Color.fromARGB(255, 33, 30, 30);
